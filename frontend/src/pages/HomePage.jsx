@@ -1,9 +1,18 @@
 import React from "react";
+import Search from "../components/Search";
+import SortRepos from "../components/SortRepos";
+import ProfileInfo from "../components/ProfileInfo";
+import Repos from "../components/Repos";
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>HomePage</h1>
+    <div className="m-4">
+      <Search />
+      <SortRepos />
+      <div className="flex gap-4 flex-col lg:flex-row justify-center item-start">
+        <ProfileInfo />
+        <Repos />
+      </div>
     </div>
   );
 };
