@@ -53,11 +53,22 @@ const HomePage = () => {
     setRepos(repos);
     setLoading(false);
   };
+  const onSort = (sortType) => {
+    if (sortType === "recent") {
+      setRepos(repos.sort((a, b) => b.id - a.id));
+    } else if (sortType === "stars") {
+      setRepos(repos.sort((a, b) => b.stargazers_count - a.stargazers_count));
+    } else if (sortType === "forks") {
+      setRepos(repos.sort((a, b) => b.forks_count - a.forks_count));
+    }
+    setSortType(sortType);
+    setRepos([...repos]);
+  };
 
   return (
     <div className="m-4">
       <Search onSearch={onSearch} />
-      <SortRepos />
+      {repos.length > 0 && <SortRepos onSort={onSort} sortType={sortType} />}
       <div className="flex gap-4 flex-col lg:flex-row justify-center item-start">
         {userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
         {!loading && <Repos repos={repos} />}
