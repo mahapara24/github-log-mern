@@ -10,7 +10,7 @@ const HomePage = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [sortType, setSortType] = useState("fork");
+  const [sortType, setSortType] = useState("recent");
 
   const getUserProfileAndRepose = useCallback(
     async (username = "mahapara24") => {
