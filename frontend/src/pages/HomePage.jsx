@@ -16,17 +16,11 @@ const HomePage = () => {
     async (username = "mahapara24") => {
       setLoading(true);
       try {
-        const userResponse = await fetch(
-          `https://api.github.com/users/${username}`
-        );
-        const userProfile = await userResponse.json();
-        setUserProfile(userProfile);
-
-        const repoRes = await fetch(userProfile.repos_url);
-        const repos = await repoRes.json();
+        const res = fetch(`/api/users/profile/${username}`);
+        const { repos, userProfile } = await res.json();
+        console.log(userProfile, "userProfile");
         setRepos(repos);
-        console.log("Useprofile:", userProfile);
-        console.log("repos:", repos);
+        setUserProfile(userProfile);
         return { userProfile, repos };
       } catch (error) {
         toast.error(error.message);
