@@ -1,9 +1,7 @@
 import express from "express";
+import { getUserProfileAndRepose } from "../controllers/user.controller";
 
 const router = express.Router();
 
-router.get("/profile/:username", (req, res) => {
-  res.send("User Profile is Ready!");
-});
-
+router.get("/profile/:username", getUserProfileAndRepose);
 export default router;
