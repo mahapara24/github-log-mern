@@ -12,9 +12,7 @@ const ExplorePage = () => {
     setLoading(true);
     setRepos([]);
     try {
-      const res = await fetch(
-        "http://localhost:5000/api/explore/repos/" + language
-      );
+      const res = await fetch("/api/explore/repos/" + language);
       const { repos } = await res.json();
       // Assuming the response structure is { items: [] }
       setRepos(repos); // Setting repos to the array inside the response
