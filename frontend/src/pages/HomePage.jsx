@@ -16,7 +16,9 @@ const HomePage = () => {
     async (username = "mahapara24") => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/users/profile/${username}`);
+        const res = await fetch(
+          `https://github-log-mern-hzndn7h9v-mahapara24.vercel.app/api/users/profile/${username}`
+        );
         const { repos, userProfile } = await res.json();
 
         setRepos(repos);
