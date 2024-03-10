@@ -12,10 +12,7 @@ const ExplorePage = () => {
     setLoading(true);
     setRepos([]);
     try {
-      const res = await fetch(
-        "https://github-log-mern-hzndn7h9v-mahapara24.vercel.app/api/explore/repos/" +
-          language
-      );
+      const res = await fetch("/api/explore/repos/" + language);
       const { repos } = await res.json();
       // Assuming the response structure is { items: [] }
       setRepos(repos); // Setting repos to the array inside the response

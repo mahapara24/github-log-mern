@@ -27,8 +27,8 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: ["https://github-log-mern-w8sz.vercel.app"],
-
+    origin: ["https://github-log-mern.vercel.app/"],
+    methods: ["POST", "GET"],
     credentials: true,
   })
 );

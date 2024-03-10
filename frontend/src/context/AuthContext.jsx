@@ -14,10 +14,7 @@ export const AuthContextProvider = ({ children }) => {
     const checkUserLoggedIn = async () => {
       setLoading(true);
       try {
-        const res = await fetch(
-          "https://github-log-mern-hzndn7h9v-mahapara24.vercel.app/api/auth/check",
-          { credentials: "include" }
-        ); //proxy set http://localhost:5000
+        const res = await fetch("/api/auth/check", { credentials: "include" }); //proxy set http://localhost:5000
         const data = await res.json();
         setAuthUser(data.user); //wil be null or authenticated object
       } catch (error) {
