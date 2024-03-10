@@ -15,7 +15,7 @@ export const AuthContextProvider = ({ children }) => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://github-log-mern-w8sz.vercel.app/api/auth/check",
+          "https://github-log-mern-hzndn7h9v-mahapara24.vercel.app/api/auth/check",
           { credentials: "include" }
         ); //proxy set http://localhost:5000
         const data = await res.json();
